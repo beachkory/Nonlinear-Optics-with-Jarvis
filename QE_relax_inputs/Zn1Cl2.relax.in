@@ -1,7 +1,7 @@
 &CONTROL
   calculation = 'vc-relax',
   forc_conv_thr = 0.0001,
-  outdir = '/scratch/beachk2/Jarvis/SbNZn1Cl2',
+  outdir = '/scratch/beachk2/Jarvis/Zn1Cl2',
   prefix = 'bn',
   pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/MartinsTroullier/',
   restart_mode = 'from_scratch',
@@ -11,7 +11,7 @@
 &SYSTEM
   degauss = 0.005,
   ecutwfc = 70,
-  force_symmorphic = '.true.',
+  force_symmorphic = .TRUE.,
   occupations = 'smearing',
   smearing = 'gaussian',
   ibrav = 0,
