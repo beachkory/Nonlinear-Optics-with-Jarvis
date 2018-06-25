@@ -1,0 +1,51 @@
+&CONTROL
+  calculation = 'vc-relax',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/SbNAs4Se6',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/MartinsTroullier/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = '.true.',
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = '.true.',
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 10,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  As  74.9216 As.pz-mt_fhi.UPF
+  Se  78.9600 Se.pz-mt_fhi.UPF
+ATOMIC_POSITIONS crystal
+  As 0.374218 0.761299 0.127213
+  As 0.374218 0.261299 0.076134
+  As 0.095598 0.982671 0.076115
+  As 0.095598 0.482671 0.127232
+  Se 0.874702 0.906403 0.155663
+  Se 0.874702 0.406403 0.047685
+  Se 0.305905 0.837560 0.047664
+  Se 0.305905 0.337560 0.155684
+  Se 0.566978 0.621967 0.086971
+  Se 0.566978 0.121967 0.116377
+K_POINTS automatic
+  12 12 1 0 0 0
+CELL_PARAMETERS angstrom
+  4.378260 -0.015002 0.000000
+  -4.336347 12.118389 0.000000
+  0.000000 0.000000 26.967600

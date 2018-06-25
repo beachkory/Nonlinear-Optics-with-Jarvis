@@ -1,0 +1,45 @@
+&CONTROL
+  calculation = 'vc-relax',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/SbNTe1O3',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/MartinsTroullier/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = '.true.',
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = '.true.',
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 4,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  O  15.9994 O.pz-mt_fhi.UPF
+  Te  127.6000 Te.pz-mt_fhi.UPF
+ATOMIC_POSITIONS crystal
+  Te 0.333333 0.666667 0.092541
+  O 0.333333 0.666667 0.149118
+  O 0.333333 0.666667 0.035965
+  O 0.000000 -0.000000 0.092541
+K_POINTS automatic
+  12 12 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.757948 0.000000 0.000000
+  -1.878974 3.254478 0.000000
+  0.000000 0.000000 31.754374

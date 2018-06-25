@@ -1,0 +1,45 @@
+&CONTROL
+  calculation = 'vc-relax',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/SbNGa2S2',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/MartinsTroullier/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = '.true.',
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = '.true.',
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 4,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Ga  69.7230 Ga.pz-mt_fhi.UPF
+  S  32.0650 S.pz-mt_fhi.UPF
+ATOMIC_POSITIONS crystal
+  Ga 0.666667 0.333333 0.114093
+  Ga 0.666667 0.333333 0.203593
+  S 0.333333 0.666667 0.074432
+  S 0.333333 0.666667 0.243254
+K_POINTS automatic
+  12 12 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.613644 0.000000 0.000000
+  -1.806823 3.129508 0.000000
+  0.000000 0.000000 27.425272

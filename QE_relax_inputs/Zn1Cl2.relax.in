@@ -1,0 +1,44 @@
+&CONTROL
+  calculation = 'vc-relax',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/SbNZn1Cl2',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/MartinsTroullier/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = '.true.',
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = '.true.',
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 3,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Cl  35.4530 Cl.pz-mt_fhi.UPF
+  Zn  65.4090 Zn.pz-mt_fhi.UPF
+ATOMIC_POSITIONS crystal
+  Cl 0.000000 0.500000 0.191303
+  Cl 0.500000 0.000000 0.307259
+  Zn 0.500000 0.500000 0.249281
+K_POINTS automatic
+  12 12 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.665060 0.000000 0.000000
+  0.000000 3.665060 0.000000
+  0.000000 0.000000 23.931200

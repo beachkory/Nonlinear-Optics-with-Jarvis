@@ -1,0 +1,48 @@
+&CONTROL
+  calculation = 'vc-relax',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/SbNZn1W1O4',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/MartinsTroullier/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = '.true.',
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = '.true.',
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 6,
+  ntyp = 3,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  O  15.9994 O.pz-mt_fhi.UPF
+  W  183.8400 W.pz-mt_fhi.UPF
+  Zn  65.4090 Zn.pz-mt_fhi.UPF
+ATOMIC_POSITIONS crystal
+  Zn 0.963170 0.499970 0.036755
+  W 0.463235 0.999994 0.036771
+  O 0.723372 0.766354 0.990812
+  O 0.670639 0.233802 0.082731
+  O 0.203238 0.766167 0.082720
+  O 0.255739 0.233714 0.990818
+K_POINTS automatic
+  12 12 1 0 0 0
+CELL_PARAMETERS angstrom
+  -0.000394 -4.536217 0.551843
+  4.570259 -0.000082 0.000000
+  0.000000 0.000000 21.647906
