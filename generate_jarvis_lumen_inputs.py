@@ -22,6 +22,15 @@ df_metals = pd.read_csv(data_path + 'metals_list.csv') #list of all metals on pe
 
 #Miscellaneous Functions
 
+#makes a list of perfect squares less than "number"
+def perf_squares(number):
+    perfect_squares_list = []
+    if number >= 0:
+        for i in range(1, int(number ** 0.5 + 1)):
+            perfect_squares = i**2
+            perfect_squares_list.append(perfect_squares)
+    return perfect_squares_list
+
 #checks if a space group has inversion symmetry
 def has_inversion(group):
     ranges = ((2, 2), (10, 15), (47, 74), (83, 88), (123, 142), (147, 148), (162, 167), (175,176), (191, 194), (200, 206), (221, 230))
@@ -105,12 +114,38 @@ def get_bulk_gap_list(dat_3d, mpid):
         x = np.array(bulk_gap_list, dtype=np.float64)    
     return np.nanmax(x)
 
+#returns kpoint grid size based on a 12x12x1 (21x21x1) grid for relaxation (Lumen SHG) of MoS2
+def get_kpt_gridsize(d,num,relax=True,lumen=False):
+    mos2_struct = d[255]['final_str']
+    mos2_area = mos2_struct.volume/(mos2_struct.lattice.c)
+    
+    if relax != lumen: 
+        if relax == True:
+            kpt_den = mos2_area*144
+        elif lumen == True:
+            kpt_den = mos2_area*441
+    else:
+        return "Error"
+            
+    struct = d[num]['final_str']
+    area = struct.volume/(struct.lattice.c)
+    kpt_gridsize = 0
+    for i, val in enumerate(perf_squares(2000)):
+        if area*val < rel_kpt_den:
+            kpt_gridsize = int(np.sqrt(val))
+        else:
+            kpt_gridsize = int(np.sqrt(val))
+            break
+    return kpt_gridsize
+
 #Generate Quantum Espresso Input File
-def generate_pw_input(num, d, calctype = 'vc-relax', kpts = [12,12,1], path = 'QE_relax_inputs/'):
+def generate_pw_input(num, d, calctype = 'vc-relax', path = 'QE_relax_inputs/ONCV/'):
 
     filname = d[num]['final_str'].formula.replace(" ", "")
     struct = d[num]['final_str']
-
+    kpt_gridsize = get_kpt_gridsize(d,num,relax=True,lumen=False)
+    kpts = [kpt_gridsize,kpt_gridsize,1]
+    
     species_list = []
     for i in struct.species:
         if str(i) not in species_list:
@@ -118,13 +153,13 @@ def generate_pw_input(num, d, calctype = 'vc-relax', kpts = [12,12,1], path = 'Q
     species_list
     pseudo = {}
     for el in species_list:
-        pseudo[el] = el + '.pbe-mt_fhi.UPF'
+        pseudo[el] = el + '_ONCV_PBE_sr.upf'
 
     control ={'calculation': calctype,
         'restart_mode':'from_scratch',
         'prefix':'bn',
-        'pseudo_dir' : '/home/beachk2/PSEUDO/upf_files/PBE/MartinsTroullier/',
-        'outdir': '/scratch/beachk2/Jarvis/' + filname,
+        'pseudo_dir' : '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+        'outdir': '/scratch/beachk2/Jarvis/IPA/' + filname,
         'wf_collect':True,
         'forc_conv_thr':1.0E-4,
         'verbosity':'high'
