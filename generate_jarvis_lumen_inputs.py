@@ -131,7 +131,7 @@ def get_kpt_gridsize(d,num,relax=True,lumen=False):
     area = struct.volume/(struct.lattice.c)
     kpt_gridsize = 0
     for i, val in enumerate(perf_squares(2000)):
-        if area*val < rel_kpt_den:
+        if area*val < kpt_den:
             kpt_gridsize = int(np.sqrt(val))
         else:
             kpt_gridsize = int(np.sqrt(val))
