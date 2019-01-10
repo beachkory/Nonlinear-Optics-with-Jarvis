@@ -1,0 +1,46 @@
+&CONTROL
+  calculation = 'scf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Ge2S2',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 30,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 4,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Ge  72.6400 Ge_ONCV_PBE_sr.upf
+  S  32.0650 S_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Ge 0.000000 0.368932 0.556151
+  Ge 0.500000 0.868371 0.443850
+  S 0.000000 0.497978 0.452384
+  S 0.500000 0.998361 0.547615
+K_POINTS automatic
+  11 9 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.683573 0.000000 0.000000
+  0.000000 4.438134 0.000000
+  0.000000 0.000000 22.677199

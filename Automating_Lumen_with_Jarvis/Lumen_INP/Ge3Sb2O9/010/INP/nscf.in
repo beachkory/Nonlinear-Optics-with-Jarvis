@@ -1,0 +1,57 @@
+&CONTROL
+  calculation = 'nscf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Ge3Sb2O9',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 73,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 14,
+  ntyp = 3,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Ge  72.6400 Ge_ONCV_PBE_sr.upf
+  O  15.9994 O_ONCV_PBE_sr.upf
+  Sb  121.7600 Sb_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Ge 0.221617 0.938914 0.898511
+  Ge 0.717298 0.778382 0.898511
+  Ge 0.061085 0.282701 0.898511
+  O 0.340995 0.913537 0.957602
+  O 0.340746 0.913573 0.839356
+  O 0.942038 0.736886 0.898607
+  O 0.263113 0.205151 0.898607
+  O 0.572543 0.659004 0.957602
+  O 0.086462 0.427456 0.957602
+  O 0.086426 0.427171 0.839356
+  O 0.572828 0.659253 0.839356
+  O 0.794848 0.057961 0.898607
+  Sb 0.333333 0.666666 0.995160
+  Sb 0.333333 0.666666 0.801851
+K_POINTS automatic
+  10 10 1 0 0 0
+CELL_PARAMETERS angstrom
+  -7.079980 -0.000000 0.000000
+  3.539990 6.131443 0.000000
+  0.000000 0.000000 -25.093035

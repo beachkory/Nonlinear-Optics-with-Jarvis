@@ -1,0 +1,44 @@
+&CONTROL
+  calculation = 'scf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Ga1N1',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 19,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 2,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Ga  69.7230 Ga_ONCV_PBE_sr.upf
+  N  14.0067 N_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Ga 0.666667 0.333333 0.015470
+  N 0.333333 0.666667 0.015368
+K_POINTS automatic
+  12 12 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.205279 -0.000000 0.000000
+  -1.602640 2.775853 0.000000
+  0.000000 0.000000 21.239962

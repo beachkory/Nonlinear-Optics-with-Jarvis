@@ -1,0 +1,46 @@
+&CONTROL
+  calculation = 'nscf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Bi1Te1Cl1',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 29,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 3,
+  ntyp = 3,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Bi  208.9804 Bi_ONCV_PBE_sr.upf
+  Cl  35.4530 Cl_ONCV_PBE_sr.upf
+  Te  127.6000 Te_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Bi 0.333333 0.666667 0.067820
+  Cl -0.000000 -0.000000 0.011376
+  Te 0.666667 0.333333 0.130906
+K_POINTS automatic
+  16 16 1 0 0 0
+CELL_PARAMETERS angstrom
+  4.301632 -0.000000 0.000000
+  -2.150815 3.725322 0.000000
+  0.000000 0.000000 28.141645

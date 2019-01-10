@@ -1,0 +1,4 @@
+#!/bin/bash
+LUMENPATH=/home/beachk2/lumen-master/bin
+QEPATH=/home/beachk2/espresso-5.4.0/bin
+UPFPATH=/home/beachk2/PSEUDO/upf_files/PBE

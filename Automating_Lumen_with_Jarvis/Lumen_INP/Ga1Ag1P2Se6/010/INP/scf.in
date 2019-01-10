@@ -1,0 +1,54 @@
+&CONTROL
+  calculation = 'scf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Ga1Ag1P2Se6',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 49,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 10,
+  ntyp = 4,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Ag  107.8682 Ag_ONCV_PBE_sr.upf
+  Ga  69.7230 Ga_ONCV_PBE_sr.upf
+  P  30.9738 P_ONCV_PBE_sr.upf
+  Se  78.9600 Se_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Ag 0.333334 0.666666 0.074584
+  Ga -0.000000 -0.000000 0.073337
+  P 0.666666 0.333334 0.122148
+  P 0.666666 0.333334 0.025745
+  Se 0.701293 0.018827 0.147668
+  Se 0.982001 0.300778 -0.000029
+  Se 0.981173 0.682465 0.147668
+  Se 0.318778 0.017999 -0.000029
+  Se 0.699222 0.681222 -0.000029
+  Se 0.317535 0.298707 0.147668
+K_POINTS automatic
+  6 6 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.220981 -5.578903 0.000000
+  3.220981 5.578903 0.000000
+  0.000000 0.000000 23.467184

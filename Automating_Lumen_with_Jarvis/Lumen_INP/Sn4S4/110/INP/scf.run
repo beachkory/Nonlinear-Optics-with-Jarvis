@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH -J myjob
+#SBATCH -o test.log
+#SBATCH -n 16
+
+cd $SLURM_SUBMIT_DIR
+DIR=$(pwd)
+source INP/Params
+
+#QEPATH=/home/beachk2/espresso-5.4.0/bin
+#LUMENPATH=/home/beachk2/lumen-master/bin
+
+mpirun $QEPATH/pw.x -inp $DIR/scf.in > $DIR/scf.out
+mpirun $QEPATH/pw.x -inp $DIR/nscf.in > $DIR/nscf.out
+
+cd $DIR/bn.save
+echo "$PBS_JOB_ID:
+Completed Quantum Espresso calculations. Moving to save directory" >>  $DIR/log.out
+$LUMENPATH/p2y -F data-file.xml
+
+echo "Converted xml with p2y"  >>  $DIR/log.out
+$LUMENPATH/lumen -i -V RL -F setup.in >& /dev/null
+
+echo "Created Lumen setup.in"  >>  $DIR/log.out
+$LUMENPATH/lumen -F setup.in
+cp ../INP/ypp.in ./
+$LUMENPATH/ypp
+cd FixSymm
+
+echo "Fixed symmetries with ypp and moved to FixSymm directory: $(pwd)"  >>  $DIR/log.out
+$LUMENPATH/lumen -F ../setup.in
+
+mv lumen.in2 lumen.in
+
+echo "Created Lumen input file"  >>  $DIR/log.out
+

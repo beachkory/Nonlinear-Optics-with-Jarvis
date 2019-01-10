@@ -1,0 +1,44 @@
+&CONTROL
+  calculation = 'nscf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Cu1Br1',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 23,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 2,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Br  79.9040 Br_ONCV_PBE_sr.upf
+  Cu  63.5460 Cu_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Br 0.666667 0.333333 0.000000
+  Cu 0.000000 0.000000 0.000000
+K_POINTS automatic
+  17 17 1 0 0 0
+CELL_PARAMETERS angstrom
+  2.057718 -3.564074 0.000000
+  2.057718 3.564074 0.000000
+  0.000000 0.000000 20.000000

@@ -1,0 +1,54 @@
+&CONTROL
+  calculation = 'nscf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/In1Cu1P2Se6',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 49,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 10,
+  ntyp = 4,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Cu  63.5460 Cu_ONCV_PBE_sr.upf
+  In  114.8180 In_ONCV_PBE_sr.upf
+  P  30.9738 P_ONCV_PBE_sr.upf
+  Se  78.9600 Se_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Cu 0.333334 0.666668 0.849767
+  In 0.000000 0.000000 0.851090
+  P 0.666666 0.333332 0.802444
+  P 0.666666 0.333332 0.899329
+  Se 0.341299 0.349383 0.777306
+  Se 0.008084 0.658701 0.777306
+  Se 0.008772 0.350852 0.924324
+  Se 0.649148 0.657921 0.924324
+  Se 0.342079 0.991228 0.924324
+  Se 0.650617 0.991916 0.777306
+K_POINTS automatic
+  11 11 1 0 0 0
+CELL_PARAMETERS angstrom
+  -6.412249 0.000000 0.000000
+  3.206124 5.553170 0.000000
+  0.000000 0.000000 -23.432263

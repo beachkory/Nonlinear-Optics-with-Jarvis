@@ -1,0 +1,52 @@
+&CONTROL
+  calculation = 'nscf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/As4S6',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 38,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 10,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  As  74.9216 As_ONCV_PBE_sr.upf
+  S  32.0650 S_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  As 0.395327 0.767612 0.128088
+  As 0.395413 0.267631 0.075258
+  As 0.104133 0.976353 0.075252
+  As 0.104064 0.476374 0.128101
+  S 0.876462 0.905445 0.149857
+  S 0.876583 0.405446 0.053494
+  S 0.309527 0.838495 0.053478
+  S 0.309357 0.338485 0.149867
+  S 0.531926 0.621976 0.092966
+  S 0.532010 0.121983 0.110379
+K_POINTS automatic
+  15 6 1 0 0 0
+CELL_PARAMETERS angstrom
+  4.604558 -0.015869 0.000000
+  -4.565381 11.385741 0.000000
+  0.000000 0.000000 26.967600

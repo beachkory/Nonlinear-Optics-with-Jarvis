@@ -1,0 +1,44 @@
+&CONTROL
+  calculation = 'scf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Mo1S2',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 3,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Mo  95.9400 Mo_ONCV_PBE_sr.upf
+  S  32.0650 S_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Mo 0.666667 0.333333 0.106647
+  S 0.333333 0.666667 0.061808
+  S 0.333333 0.666667 0.151486
+K_POINTS automatic
+  12 12 1 0 0 0
+CELL_PARAMETERS angstrom
+  1.592627 -2.758510 0.000000
+  1.592627 2.758510 0.000000
+  0.000000 0.000000 34.879004

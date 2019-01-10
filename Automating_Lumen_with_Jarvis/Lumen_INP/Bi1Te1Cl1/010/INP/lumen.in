@@ -1,0 +1,34 @@
+#
+# //$$        /$$       /$$       $$ /$$$$$$$   $$    $$
+# | $$       //$$    $$| $$$    /$$$| $$       /$$$$  $$
+# | $$       | $$    $$| $$$$  /$$$$| $$      | $$$$$ $$
+# | $$       | $$    $$| $$ $$/$$ $$| $$$$$$$ | $$ $$$$$
+# | $$       | $$    $$| $$  $$$| $$| $$      | $$   $$$
+# | $$       | $$    $$| $$\  $ | $$| $$      | $$    $$
+# | $$$$$$$  | $$$$$$$$| $$     | $$| $$$$$$$/| $$    $$
+# |______/   |________/|__/     |__/|_______/  \__/  \_/
+#
+#             GPL Version 1.0.0 Revision 120
+#                       MPI Build
+#                 (based on Yambo 4.1.2)
+#
+nlinear                      # [R NL] Non-linear optics
+% NLBands
+  13 | 25 |                   # [NL] Bands
+%
+NLstep=   0.0150       fs    # [NL] Real Time step length
+NLtime=45.000000       fs    # [NL] Simulation Time
+NLintegrator= "CRANKNIC"     # [NL] Integrator ("EULEREXP/RK4/RK2EXP/HEUN/INVINT/CRANKNIC")
+NLCorrelation= "IPA"         # [NL] Correlation ("IPA/HARTREE/TDDFT/LRC/JGM/LHF/LSEX")
+NLLrcAlpha= 0.000000         # [NL] Long Range Correction
+% NLEnRange
+ 0.400000 | 2.100000 | eV    # [NL] Energy range
+%
+NLEnSteps=  120               # [NL] Energy steps
+NLDamping= 0.200000    eV    # [NL] Damping
+NLGvecs= 120          RL    # [NL] Number of G vectors in NL dynamics for Hartree/TDDFT
+NLInSteps= 1                 # [NL] Intensity steps for Richardson extrap. (1-3)
+% ExtF_Dir
+ 0.0 | 1.0 | 0.000000 |        # [NL ExtF] Versor
+%
+ExtF_kind= "SOFTSIN"         # [NL ExtF] Kind(SIN|SOFTSIN|RES|ANTIRES|GAUSS|DELTA|QSSIN)

@@ -1,0 +1,45 @@
+&CONTROL
+  calculation = 'nscf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Zn1Cl2',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 27,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 3,
+  ntyp = 2,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Cl  35.4530 Cl_ONCV_PBE_sr.upf
+  Zn  65.4090 Zn_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Cl 0.000000 0.500000 0.192382
+  Cl 0.500000 0.000000 0.306176
+  Zn 0.500000 0.500000 0.249285
+K_POINTS automatic
+  18 18 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.704406 0.000000 0.000000
+  0.000000 3.704718 0.000000
+  0.000000 0.000000 23.931200

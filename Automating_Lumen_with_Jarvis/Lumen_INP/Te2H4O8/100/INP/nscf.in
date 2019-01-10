@@ -1,0 +1,57 @@
+&CONTROL
+  calculation = 'nscf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Te2H4O8',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 52,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 14,
+  ntyp = 3,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  H  1.0079 H_ONCV_PBE_sr.upf
+  O  15.9994 O_ONCV_PBE_sr.upf
+  Te  127.6000 Te_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  H 0.033296 0.650250 0.170772
+  H 0.477506 0.596302 0.000968
+  H 0.522494 0.096301 0.000968
+  H 0.966704 0.150250 0.170772
+  O 0.106925 0.477714 0.162383
+  O 0.393142 0.430979 0.011474
+  O 0.932110 0.279944 0.059802
+  O 0.428370 0.163373 0.112922
+  O 0.571630 0.663373 0.112922
+  O 0.067890 0.779944 0.059802
+  O 0.606857 0.930980 0.011474
+  O 0.893075 -0.022286 0.162383
+  Te 0.250183 0.473215 0.086678
+  Te 0.749817 0.973215 0.086678
+K_POINTS automatic
+  14 13 1 0 0 0
+CELL_PARAMETERS angstrom
+  -4.879657 -0.000000 0.000000
+  -0.000000 -5.223096 0.000000
+  0.000000 0.000000 24.194826

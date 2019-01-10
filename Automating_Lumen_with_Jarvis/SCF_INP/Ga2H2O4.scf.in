@@ -1,0 +1,51 @@
+&CONTROL
+  calculation = 'scf',
+  forc_conv_thr = 0.0001,
+  outdir = '/scratch/beachk2/Jarvis/IPA/Ga2H2O4',
+  prefix = 'bn',
+  pseudo_dir = '/home/beachk2/PSEUDO/upf_files/PBE/ONCVPSP-master/sg15/',
+  restart_mode = 'from_scratch',
+  verbosity = 'high',
+  wf_collect = .TRUE.,
+/
+&SYSTEM
+  degauss = 0.005,
+  ecutwfc = 70,
+  force_symmorphic = .TRUE.,
+  nbnd = 36,
+  occupations = 'smearing',
+  smearing = 'gaussian',
+  ibrav = 0,
+  nat = 8,
+  ntyp = 3,
+/
+&ELECTRONS
+  conv_thr = 1d-08,
+  mixing_beta = 0.7,
+  mixing_mode = 'plain',
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  Ga  69.7230 Ga_ONCV_PBE_sr.upf
+  H  1.0079 H_ONCV_PBE_sr.upf
+  O  15.9994 O_ONCV_PBE_sr.upf
+ATOMIC_POSITIONS crystal
+  Ga 0.500000 0.263440 0.462719
+  Ga 0.000000 0.763439 0.537280
+  H 0.000000 0.482923 0.391122
+  H 0.500000 -0.017074 0.608879
+  O 0.000000 0.261195 0.410624
+  O 0.000000 0.265425 0.520145
+  O 0.500000 0.765425 0.479855
+  O 0.500000 0.761193 0.589376
+K_POINTS automatic
+  13 11 1 0 0 0
+CELL_PARAMETERS angstrom
+  3.008235 0.000000 0.000000
+  0.000000 3.781441 0.000000
+  0.000000 0.000000 25.152066

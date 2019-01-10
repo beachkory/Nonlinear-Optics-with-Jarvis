@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -J myjob
+#SBATCH -o test.log
+#SBATCH -n 32
+
+LUMENPATH=/home/beachk2/lumen-master/bin
+
+cd $SLURM_SUBMIT_DIR
+DIR=$(pwd)
+
+echo "Submitted lumen.run to queue"  >>  $DIR/../../log.out
+
+mpirun $LUMENPATH/lumen -F $DIR/lumen.in
+$LUMENPATH/ypp -u >& /dev/null
+mpirun $LUMENPATH/ypp -F $DIR/ypp.in
+
+echo "Lumen job complete." >>  $DIR/../../log.out
+
+FIELD="110"
+MAT="Al1N1"
+
+mkdir -p ../../../../Outputs/
+zip ../../../../Outputs/$MAT.$FIELD.zip o.YPP* lumen.in ../../*.in

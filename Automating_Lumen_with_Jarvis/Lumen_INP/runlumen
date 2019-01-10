@@ -1,0 +1,18 @@
+#!/bin/bash
+source INP/Params
+cd INP && cp scf.run scf.in nscf.in ../ && cd ../
+sed -i -r "s@(outdir=).*@\1 '$(pwd)'@" scf.in nscf.in
+sed -i -r "s@(outdir =).*@\1 '$(pwd)'@" scf.in nscf.in
+sed -i -r "s@(pseudo_dir =).*@\1 '$UPFPATH'@" scf.in nscf.in
+sed -i -r "s@(pseudo_dir=).*@\1 '$UPFPATH'@" scf.in nscf.in
+FIRSTstr=`sbatch scf.run`
+FIRST=${FIRSTstr//[!0-9]/}
+echo $FIRST
+mkdir -p bn.save/FixSymm
+cd bn.save/FixSymm
+cp ../../INP/lumen.run ./
+cp ../../INP/lumen.in ./lumen.in2
+SECONDstr=`sbatch -d afterok:$FIRST lumen.run`
+SECOND=${SECONDstr//[!0-9]/}
+echo $SECOND
+cd ../../
